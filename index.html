@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestour 360 - La solution logicielle de votre agence de voyages</title>
+    
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIABLES DE LA CHARTE VIAXOFT */
+        :root {
+            --palatinate-blue: #4640FF;
+            --tropical-indigo: #A29CF6;
+            --lavender: #DFDCFC;
+            --coral: #FF825C;
+            --royal-blue: #062367;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--royal-blue);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--coral);
+            color: var(--white);
+            border: 2px solid var(--coral);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67650;
+            border-color: #e67650;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 130, 92, 0.3);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .logo img { height: 40px; }
+
+        nav ul { display: flex; gap: 20px; flex-wrap: wrap;}
+        nav a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
+        nav a:hover { color: var(--palatinate-blue); }
+
+        /* SECTIONS DE BASE */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(6, 35, 103, 0.05);
+        }
+
+        .card h3 { color: var(--palatinate-blue); margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* HERO SECTION */
+        #hero {
+            margin-top: 70px;
+            padding: 120px 5%;
+            background: linear-gradient(135deg, var(--palatinate-blue) 0%, var(--tropical-indigo) 100%);
+            color: var(--white);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero h1 { font-size: 3.5rem; max-width: 900px; margin-bottom: 20px; }
+        #hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 40px; font-weight: 300; }
+
+        /* ARRIÈRE-PLANS ALTERNÉS */
+        .bg-lavender { background-color: var(--lavender); }
+        .bg-palatinate { background-color: var(--palatinate-blue); color: var(--white); }
+        .bg-palatinate h2, .bg-palatinate .section-title { color: var(--white); }
+        .bg-palatinate .card { background-color: var(--royal-blue); color: var(--white); box-shadow: none; }
+        .bg-palatinate .card h3 { color: var(--coral); }
+
+        /* LISTES SPÉCIFIQUES */
+        .feature-list { margin-top: 15px; }
+        .feature-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-weight: bold;
+        }
+        .bg-palatinate .feature-list li::before { color: var(--tropical-indigo); }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--royal-blue);
+            color: var(--white);
+            padding: 60px 5% 30px 5%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px; gap: 15px; }
+            nav ul { justify-content: center; }
+            #hero h1 { font-size: 2.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <img src="gestour_horizontal.png" alt="Gestour Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#vision">Cœur de métier</a></li>
+                <li><a href="#benefices">Bénéfices</a></li>
+                <li><a href="#inventory">Smart Inventory</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#business">Pack Business</a></li>
+            </ul>
+        </nav>
+        <a href="mailto:commercial@gestour.com" class="btn btn-primary">Nous contacter</a>
+    </header>
+
+    <section id="hero">
+        <h1>Gestour 360</h1>
+        <p>Gérez simplement et efficacement le quotidien de votre agence de voyages, avec la solution complète de gestion Mid et Back Office.</p>
+        <a href="#vision" class="btn btn-primary">Découvrir la solution</a>
+    </section>
+
+    <section id="vision" class="bg-lavender">
+        <h2 class="section-title">Recentrez vos tâches sur votre cœur de métier avec une solution de gestion simple</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Vision à 360° de vos clients</h3>
+                <p>Le client est au cœur de l'activité d'une entreprise, il est important que chaque collaborateur dispose du maximum d'information pour répondre aux besoins de chaque client. Gestour 360 place le client au centre de votre activité.</p>
+            </div>
+            <div class="card">
+                <h3>Partenaire unique de la facturation à la comptabilité</h3>
+                <p>L'industrie est en constante évolution, il devient nécessaire de disposer d'une solution de gestion complète, simple et intuitive. Gestour 360 permet de suivre vos tâches quotidiennes pour améliorer votre productivité et vous recentrer sur votre cœur de métier, le conseil et la vente.</p>
+            </div>
+            <div class="card">
+                <h3>Gamme de contenu</h3>
+                <p>Gestour 360 est une solution modulaire et connectée à l'industrie du tourisme, ainsi elle s'adapte à chacun de vos besoins avec un ensemble de fonctionnalités additionnelles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefices">
+        <h2 class="section-title">Bénéfices et avantages</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Portail assurances</h3>
+                <p>Intégrez la proposition et la vente d'assurance voyages directement dans Gestour 360. Récupérez de manière automatisée, à travers une interface au sein de Gestour 360, l'ensemble des informations pour une vente d'assurance et effectuez automatiquement la réservation de cette même assurance chez votre assureur.</p>
+                <p>L'interface Portail Assurances vous permet de référencer l'ensemble des contrats d'assurances proposés pour accompagner l'acte de vente et augmenter le taux de transformation de vente des assurances dans le respect de votre politique commerciale.</p>
+                <ul class="feature-list">
+                    <li>Paramétrage de vos contrats assurances et gestion des markup</li>
+                    <li>Automatisation de la proposition asssurance et calcul du montant assurance</li>
+                    <li>Automatisation de la réservation de l'assurance chez l'assureur</li>
+                    <li>Automatisation de création des lignes assurances et polices dans vos documents clients</li>
+                    <li>Fourniture de l'argumentaire de vente et détail du contrat assurance</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>WebServices</h3>
+                <p>Piloter les fonctionnalités de Gestour 360 à travers, vos sites de vente BtoC et/ou BtoB et d'automatiser toute votre chaîne de gestion. L'ensemble des actions de création, recherche de clients et/ou commandes sont disponibles ainsi que les verbes permettant la facturation et les encaissements client.</p>
+            </div>
+            <div class="card">
+                <h3>Générateur d'Écritures Comptables</h3>
+                <p>Gagnez du temps pour le traitement de vos données comptables, en transférant automatiquement vos données Gestour 360 dans votre outil comptable, sans aucune ressaisie dans votre logiciel de comptabilité. Vous garantissez ainsi une continuité des traitements (en cas d'absence pour congés, maladie…), et une optimisation de votre travail comptable: limitation du risque d'erreurs.</p>
+            </div>
+            <div class="card">
+                <h3>Dématérialisation</h3>
+                <p>Dématérialisez les factures clients vers un tiers de confiance pour réduire les coûts et optimiser le traitement et l'archivage des factures.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="inventory" class="bg-palatinate">
+        <h2 class="section-title">Gestour   Smart Inventory</h2>
+        <p class="section-subtitle">Au sein de votre solution Gestour Smart Inventory, vous pourrez produire des packages en administrant tous vos produits, vos stocks et vos occupations.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Clé en main</h3>
+                <p>Une solution d'inventaire adaptée à vos besoins pour gérer de façon optimale vos stocks, vos occupations ainsi que vos règles de tarifications.</p>
+            </div>
+            <div class="card">
+                <h3>Fonctionnalités</h3>
+                <ul class="feature-list">
+                    <li>Gestion optimale des inventaires & occupations</li>
+                    <li>Gestion des règles de tarification</li>
+                    <li>Documents de voyage automatisés</li>
+                    <li>Gestion des devis et transformation en commande</li>
+                    <li>Outil multilingue & multidevises - Réservation multicanale (online, offline, distribution externe…) - Catalogue Multimédia</li>
+                    <li>Emission de messages Tour-opérateurs structurés (MCTO)</li>
+                    <li>Intégration du lien GDS & remontées billetterie</li>
+                    <li>Gestion de la relation client & fournisseur</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics">
+        <h2 class="section-title">Gestour Analytics</h2>
+        <p class="section-subtitle">Gestour Analytics vous permet de suivre facilement votre activité avec des indicateurs prédéfinis et représentés graphiquement afin de prendre les meilleures décisions au bon moment.</p>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Une vision globale de votre activité</h3>
+                <p>Gestour Analytics, consolide l'ensemble des données issues de Gestour 360 pour vous permettre de suivre et d'analyser les performances de votre entreprise pour piloter au mieux et anticiper votre activité.</p>
+            </div>
+            <div class="card">
+                <h3>Personnalisation de vos tableaux de bord</h3>
+                <p>Gestour Analytics vous permet d'affiner vos analyses au plus près de vos besoins avec la mise à disposition de 280 indicateurs et des filtres par période, société, agences, clients, fournisseurs, destinations ... pour des prises de décisions proactives.</p>
+            </div>
+            <div class="card">
+                <h3>Un accès dédié à votre client pour accéder à ses données</h3>
+                <p>Gestour Analytics vous permet de proposer un service supplémentaire à vos clients entreprises en proposant un espace client dédié.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="business" class="bg-lavender">
+        <h2 class="section-title">Gestour 360 Pack Business</h2>
+        <p class="section-subtitle">Gestour 360 Pack business est la solution qui vous permet d'optimiser vos processus de gestion en automatisant et en intégrant une solution 100% connectée.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Une réduction du temps de traitement</h3>
+                <p>La solution Gestour 360 Pack business récupère l'ensemble des données issues de votre espace de réservation, les décode et les traite automatiquement sans aucune manipulation humaine redondante, fiabilisant ainsi le traitement des données. Gagnez en productivité et automatiser la facturation de vos sociétés.</p>
+            </div>
+            <div class="card">
+                <h3>Visualisation synthétique des informations nécessaires</h3>
+                <p>La solution Gestour 360 Pack Business reprend automatiquement toutes les données issues de votre paramétrage pour respecter votre politique et réaliser automatiquement calcul de vos frais, mark-up, facturation et transmission de la facture au client.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="inside">
+        <h2 class="section-title">Gestour Inside</h2>
+        <p class="section-subtitle">Visualisez et contrôlez vos informations clients à tout instant, directement depuis votre plateforme de réservation GDS Amadeus Selling Connect.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Un traitement automatisé garanti par un PNR enrichi dès la réservation</h3>
+                <p>Depuis votre solution de vente, vous pouvez accéder à l'ensemble des informations clés de votre client issues de Gestour 360. Vous pourrez facilement compléter votre PNR puis automatiser le traitement de votre dossier.</p>
+            </div>
+            <div class="card">
+                <h3>Un contrôle dynamique des informations essentielles à la facturation</h3>
+                <ul class="feature-list">
+                    <li>Alimenter les données clients Nom/prenom, téléphone, email sur votre PNR</li>
+                    <li>Contrôler la présence des informations clients obligatoires définies dans Gestour 360</li>
+                    <li>Agir sur le prix de vente, l'email de facturation, le transfert sur une autre agence</li>
+                    <li>Raccrocher votre émission à un dossier existant Gestour 360</li>
+                    <li>Lancer automatiquement la facturation de votre billet dès l'émission</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Prêt à dynamiser votre agence de voyages ?</h2>
+        <p style="margin: 20px 0 40px 0;">Contactez-nous pour en savoir plus à propos de nos produits.</p>
+        <a href="mailto:commercial@gestour.com" class="btn btn-primary">Nous contacter</a>
+        <div style="margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+            <p>&copy; 2026 Viaxoft - Gestour. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
